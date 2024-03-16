@@ -28,7 +28,7 @@ let songs= [
     } , {
         songname: "obbesed",
         filepath: "obbesed.mp3",
-        cover:"obsessed.jpg"
+        cover:"Obsessed2.jpg"
 
     } , {
         songname: "maahi ve",
