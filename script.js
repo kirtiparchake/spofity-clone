@@ -93,50 +93,58 @@ const makeallplays = ()=>{
 
 
 
-  Array.from(document.getElementsByClassName('songitemplay')).forEach((element)=>{
-    element.addEventListener("click",(e)=>{
+Array.from(document.getElementsByClassName('songitemplay')).forEach((element) => {
+    element.addEventListener("click", (e) => {
         makeallplays();
-        songindex= parseInt(e.target.id);
-     e.target.classList.remove("ri-play-circle-line")  
-     e.target.classList.add("ri-pause-circle-line")
-     songinfo.innerText = songs[songindex].songname;
-     audioelement.src = songs[index].filepath;
-     audioelement.currentTime= 0;
-     audioelement.play();
-     masterplay.classList.remove("ri-play-circle-line")  
-    masterplay.classList.add("ri-pause-circle-line")
-    })
-  })
+        const clickedIndex = parseInt(e.target.id);
+        if (clickedIndex === songindex && !audioelement.paused) {
+            // If the clicked song is already playing, pause it
+            audioelement.pause();
+            masterplay.classList.remove("ri-pause-circle-line");
+            masterplay.classList.add("ri-play-circle-line");
+        } else {
+            // Play the clicked song
+            songindex = clickedIndex;
+            e.target.classList.remove("ri-play-circle-line");
+            e.target.classList.add("ri-pause-circle-line");
+            songinfo.innerText = songs[songindex].songname;
+            audioelement.src = songs[songindex].filepath;
+            audioelement.currentTime = 0;
+            audioelement.play();
+            masterplay.classList.remove("ri-play-circle-line");
+            masterplay.classList.add("ri-pause-circle-line");
+        }
+    });
+});
 
 
-  document.getElementById("forward").addEventListener("click",(index)=>{
-    if(songindex>=7){
 
-        songindex +=1;
-    }else{
-        songindex +=1;
+  document.getElementById("forward").addEventListener("click", () => {
+    if (songindex < songs.length - 1) {
+        songindex += 1;
+    } else {
+        songindex = 0;
     }
-    audioelement.src = songs[index].filepath;
+    audioelement.src = songs[songindex].filepath;
     songinfo.innerText = songs[songindex].songname;
-    audioelement.currentTime= 0;
+    audioelement.currentTime = 0;
     audioelement.play();
-    masterplay.classList.remove("ri-play-circle-line")  
-   masterplay.classList.add("ri-pause-circle-line")
+    masterplay.classList.remove("ri-play-circle-line");
+    masterplay.classList.add("ri-pause-circle-line");
+});
 
-  })
-    document.getElementById("previous").addEventListener("click",(index)=>{
-    if(songindex<0){
-
-        songindex =0;
-    }else{
-        songindex -=1;
+document.getElementById("previous").addEventListener("click", () => {
+    if (songindex > 0) {
+        songindex -= 1;
+    } else {
+        songindex = songs.length - 1;
     }
-    audioelement.src = songs[index].filepath;
+    audioelement.src = songs[songindex].filepath;
     songinfo.innerText = songs[songindex].songname;
-    audioelement.currentTime= 0;
+    audioelement.currentTime = 0;
     audioelement.play();
-    masterplay.classList.remove("ri-play-circle-line")  
-   masterplay.classList.add("ri-pause-circle-line")
+    masterplay.classList.remove("ri-play-circle-line");
+    masterplay.classList.add("ri-pause-circle-line");
+});
 
-  })
 
