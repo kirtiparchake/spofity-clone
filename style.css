@@ -86,15 +86,17 @@ h1{
 }
 .bottom .icon{
     cursor: pointer;
-    padding-top: 10px;
+    /* padding-top: 10px; */
     /* color: antiquewhite; */
     display: flex;
     gap: 50px;
     align-items: center;
     justify-content: center;
+    margin-right: 13%;
    
 }
 .icon {
+    text-align: center;
    font-size: 3rem;
     /* width: 50px; */
     /* color: rgb(28, 25, 31); */
