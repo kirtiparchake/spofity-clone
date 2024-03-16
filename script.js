@@ -2,47 +2,48 @@ let audioelement = new Audio();
 let songindex= 0;
 let masterplay = document.getElementById('masterplay')
 let myprogressbar = document.getElementById("myprogressbar")
+let songinfo=document.querySelector('.songinfo')
 let songitem=  Array.from(document.querySelectorAll('.songitem'))
 let songs= [
     {
         songname: "Nakhrewali",
         filepath: "nakhrewali.mp3",
-        cover:""
+        cover: "nakhrewali.jpg"
 
     } , {
         songname: "kinni kinni",
         filepath: "kinni kinni.mp3",
-        cover:""
+        cover:"kinni kinni.jpg"
 
     } , {
         songname: "Raja tu",
         filepath: "raja tu.mp3",
-        cover:""
+        cover:"raja tu.jpg"
 
     } , {
         songname: "one love",
         filepath: "one love.mp3",
-        cover:""
+        cover:"onelove1.jpg"
 
     } , {
         songname: "obbesed",
         filepath: "obbesed.mp3",
-        cover:""
+        cover:"obsessed.jpg"
 
     } , {
         songname: "maahi ve",
         filepath: "maahi ve.mp3",
-        cover:""
+        cover:"O-Maahi.jpg"
 
     }  ,{
         songname: "has has",
         filepath: "has has.mp3",
-        cover:""
+        cover:"has has.jpg"
 
     },  {
         songname: "tere hawale",
         filepath: "tere hawale.mp3",
-        cover:""
+        cover:"tere hawale.jpg"
 
     } 
 ]
@@ -50,7 +51,7 @@ let songs= [
 {
 
 
-    element.getElementsByTagName('img')[0].src= songs[i].coverpath;
+    element.getElementsByTagName('img')[0].src= songs[i].cover;
     element.getElementsByClassName('songname')
  })
 
@@ -95,9 +96,10 @@ const makeallplays = ()=>{
   Array.from(document.getElementsByClassName('songitemplay')).forEach((element)=>{
     element.addEventListener("click",(e)=>{
         makeallplays();
-       let index= parseInt(e.target.id);
+        songindex= parseInt(e.target.id);
      e.target.classList.remove("ri-play-circle-line")  
      e.target.classList.add("ri-pause-circle-line")
+     songinfo.innerText = songs[songindex].songname;
      audioelement.src = songs[index].filepath;
      audioelement.currentTime= 0;
      audioelement.play();
@@ -105,3 +107,36 @@ const makeallplays = ()=>{
     masterplay.classList.add("ri-pause-circle-line")
     })
   })
+
+
+  document.getElementById("forward").addEventListener("click",(index)=>{
+    if(songindex>=7){
+
+        songindex +=1;
+    }else{
+        songindex +=1;
+    }
+    audioelement.src = songs[index].filepath;
+    songinfo.innerText = songs[songindex].songname;
+    audioelement.currentTime= 0;
+    audioelement.play();
+    masterplay.classList.remove("ri-play-circle-line")  
+   masterplay.classList.add("ri-pause-circle-line")
+
+  })
+    document.getElementById("previous").addEventListener("click",(index)=>{
+    if(songindex<0){
+
+        songindex =0;
+    }else{
+        songindex -=1;
+    }
+    audioelement.src = songs[index].filepath;
+    songinfo.innerText = songs[songindex].songname;
+    audioelement.currentTime= 0;
+    audioelement.play();
+    masterplay.classList.remove("ri-play-circle-line")  
+   masterplay.classList.add("ri-pause-circle-line")
+
+  })
+
