@@ -14,7 +14,7 @@ html,body {
 nav{
     height: 9%;
     width: 100%;
-    background-color:rgba(190, 93, 166, 0.897);
+    background-color:black;
     color: white;
     display: flex;
     gap: 50px;
@@ -34,7 +34,7 @@ nav img{
     flex-direction: column;
     /* justify-content: center; */
     /* align-items: center; */
-    background-image: url("https://storage.googleapis.com/pai-images/777c2d4ae7284646a0663c0cbed358ca.jpeg");
+    background-image: url("https://m.media-amazon.com/images/I/71+LKOWHz2L.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     color: white;
@@ -62,17 +62,17 @@ h1{
    
 }
 .songinfo{
-    color: rgb(28, 25, 31);
+    /* color: rgb(28, 25, 31); */
     text-transform: capitalize;
     font-size: 1rem;
 }
 
 
 .bottom{
-  
+  color: white;
     position: sticky;
     margin-top: 10px;
-    background-color:rgba(190, 93, 166, 0.897);
+    background-color:black;
     height: 15%;
     width: 100%;
    display: flex;
@@ -96,7 +96,7 @@ h1{
 .icon {
    font-size: 3rem;
     /* width: 50px; */
-    color: rgb(28, 25, 31);
+    /* color: rgb(28, 25, 31); */
     object-fit: contain;
     /* mix-blend-mode: color-burn; */
     /* border-radius: 50%;
