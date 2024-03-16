@@ -12,6 +12,7 @@ html,body {
     width: 100vw;
 }
 nav{
+    position: sticky;
     height: 9%;
     width: 100%;
     background-color:black;
@@ -118,6 +119,7 @@ h1{
     border-radius: 12px;
 }
 #myprogressbar{
+    width: 90%;
     cursor: pointer;
 }
 .songitem img{
